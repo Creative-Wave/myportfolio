@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.strok {
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke: 2px #6343f3;
+  text-transform: uppercase;
+}
+.strok::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #6343f3;
+  -webkit-text-stroke: 0px #ffff;
+  border-right: 3px solid #6343f3;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 25%;
+  }
+  50% {
+    width: 50%;
+  }
+  75% {
+    width: 75%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* Custom CSS for the zoom effect */
+.zoom-effect {
+  transform: scale(1);
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
